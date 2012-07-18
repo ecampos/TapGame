@@ -9,8 +9,32 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+@synthesize buttonOne, buttonTwo, buttonThree, buttonFour, buttonStart, buttonStop;
+@synthesize labelLevel;
 
 @synthesize window = _window;
+
+-(IBAction)pushButtonOne:(id)sender{
+    labelLevel.text =@"One";
+}
+-(IBAction)pushButtonTwo:(id)sender{
+    labelLevel.text =@"Two";    
+}
+-(IBAction)pushButtonThree:(id)sender{
+    labelLevel.text =@"Three";
+}
+-(IBAction)pushButtonFour:(id)sender{
+    labelLevel.text =@"four";
+}
+-(IBAction)pushButtonStart:(id)sender{
+    labelLevel.text =@"start";
+}
+-(IBAction)pushButtonStop:(id)sender{
+    labelLevel.text =@"stop";
+}
+//-(IBAction)setLabelLevel:(UILabel *)labelLevel:(id)sender{
+//        labelLevel.text =@"One";
+//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

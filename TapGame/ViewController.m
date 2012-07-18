@@ -13,6 +13,32 @@
 @end
 
 @implementation ViewController
+@synthesize buttonOne;
+@synthesize buttonTwo;
+@synthesize buttonThree;
+@synthesize buttonFour;
+@synthesize buttonStart;
+@synthesize buttonStop;
+@synthesize lableLevel;
+
+-(IBAction)pushButtonOne:(id)sender{
+    lableLevel.text =@"One";
+}
+-(IBAction)pushButtonTwo:(id)sender{
+    lableLevel.text =@"Two";    
+}
+-(IBAction)pushButtonThree:(id)sender{
+    lableLevel.text =@"Three";
+}
+-(IBAction)pushButtonFour:(id)sender{
+    lableLevel.text =@"four";
+}
+-(IBAction)pushButtonStart:(id)sender{
+    lableLevel.text =@"start";
+}
+-(IBAction)pushButtonStop:(id)sender{
+    lableLevel.text =nil;
+}
 
 - (void)viewDidLoad
 {
@@ -22,6 +48,13 @@
 
 - (void)viewDidUnload
 {
+    [self setButtonOne:nil];
+    [self setButtonTwo:nil];
+    [self setButtonThree:nil];
+    [self setButtonFour:nil];
+    [self setButtonStart:nil];
+    [self setButtonStop:nil];
+    [self setLableLevel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
