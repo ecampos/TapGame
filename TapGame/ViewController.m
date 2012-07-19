@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
-
+NSString *replay;
 @implementation ViewController
 @synthesize buttonOne;
 @synthesize buttonTwo;
@@ -21,23 +22,41 @@
 @synthesize buttonStop;
 @synthesize lableLevel;
 
+
 -(IBAction)pushButtonOne:(id)sender{
-    lableLevel.text =@"One";
+    if (replay == nil){
+        replay =@"One";} else{
+            NSString *foo =@",One";
+          replay = [NSString stringWithFormat:@"%@%@",replay, foo];
+        }
 }
 -(IBAction)pushButtonTwo:(id)sender{
-    lableLevel.text =@"Two";    
+    if (replay == nil){
+        replay =@"Two";} else{
+            NSString *foo =@",Two";
+            replay = [NSString stringWithFormat:@"%@%@",replay, foo];
+        }
 }
 -(IBAction)pushButtonThree:(id)sender{
-    lableLevel.text =@"Three";
+    if (replay == nil){
+        replay =@"Three";} else{
+            NSString *foo =@",Three";
+            replay = [NSString stringWithFormat:@"%@%@",replay, foo];
+        }    
 }
 -(IBAction)pushButtonFour:(id)sender{
-    lableLevel.text =@"four";
+    if (replay == nil){
+        replay =@"Four";} else{
+            NSString *foo =@",Four";
+            replay = [NSString stringWithFormat:@"%@%@",replay, foo];
+        }
 }
 -(IBAction)pushButtonStart:(id)sender{
-    lableLevel.text =@"start";
+    lableLevel.text =replay;
 }
 -(IBAction)pushButtonStop:(id)sender{
     lableLevel.text =nil;
+    replay =nil;
 }
 
 - (void)viewDidLoad
