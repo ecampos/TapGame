@@ -20,6 +20,8 @@
 		320632C415B70995004BE263 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320632A515B70995004BE263 /* Foundation.framework */; };
 		320632CC15B70995004BE263 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 320632CA15B70995004BE263 /* InfoPlist.strings */; };
 		320632CF15B70995004BE263 /* TapGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 320632CE15B70995004BE263 /* TapGameTests.m */; };
+		32B66F0E15BC960600D69692 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B66F0D15BC960600D69692 /* Logo.png */; };
+		32B66F1115BC97D200D69692 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B66F0D15BC960600D69692 /* Logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		320632CB15B70995004BE263 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		320632CD15B70995004BE263 /* TapGameTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TapGameTests.h; sourceTree = "<group>"; };
 		320632CE15B70995004BE263 /* TapGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapGameTests.m; sourceTree = "<group>"; };
+		32B66F0D15BC960600D69692 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,7 @@
 		320632AA15B70995004BE263 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				32B66F0D15BC960600D69692 /* Logo.png */,
 				320632AB15B70995004BE263 /* TapGame-Info.plist */,
 				320632AC15B70995004BE263 /* InfoPlist.strings */,
 				320632AF15B70995004BE263 /* main.m */,
@@ -223,6 +227,7 @@
 			files = (
 				320632AE15B70995004BE263 /* InfoPlist.strings in Resources */,
 				320632B715B70995004BE263 /* MainStoryboard.storyboard in Resources */,
+				32B66F0E15BC960600D69692 /* Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				320632CC15B70995004BE263 /* InfoPlist.strings in Resources */,
+				32B66F1115BC97D200D69692 /* Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +435,7 @@
 				320632D415B70995004BE263 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		320632D515B70995004BE263 /* Build configuration list for PBXNativeTarget "TapGameTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +444,7 @@
 				320632D715B70995004BE263 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

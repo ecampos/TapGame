@@ -13,131 +13,164 @@
 @interface ViewController ()
 
 @end
+@implementation ViewController
+NSNumber *inputInt;
 NSMutableArray *inputArray;
 NSMutableArray *randomArray;
-@implementation ViewController
+@synthesize buttonZero;
 @synthesize buttonOne;
 @synthesize buttonTwo;
 @synthesize buttonThree;
-@synthesize buttonFour;
 @synthesize buttonStart;
 @synthesize buttonStop;
 @synthesize lableLevel;
 
 
--(IBAction)pushButtonOne:(id)sender{
-    NSNumber *inputInt = [NSNumber numberWithInt:0];
-    
-    if(inputArray.count == 0){
-        
-        inputArray = [[NSMutableArray alloc] init];
-        [inputArray addObject:inputInt];
-   
+-(IBAction)pushButtonZero:(id)sender{
+    inputInt = [NSNumber numberWithInt:0];
+    inputArray = [[NSMutableArray alloc] init];
+    if(randomArray.count ==0){
+        lableLevel.text=@"Start the Game first";
+        [inputArray removeAllObjects];
+        [randomArray removeAllObjects];
     } else {
         [inputArray insertObject:inputInt atIndex:inputArray.count ];
-            }
+        if (inputArray.count != randomArray.count &&[inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count]]) {
+            lableLevel.text =@"good";
+        } else {
+            lableLevel.text =@"sorry you lost";
+            [inputArray removeAllObjects];
+            [randomArray removeAllObjects];
+        } 
+        
+    }
+    
+}
+
+-(IBAction)pushButtonOne:(id)sender{
+    inputInt = [NSNumber numberWithInt:1];
+    inputArray = [[NSMutableArray alloc] init];
+    if(randomArray.count ==0){
+        lableLevel.text=@"Start the Game first";
+        [inputArray removeAllObjects];
+        [randomArray removeAllObjects];
+    } else {
+        [inputArray insertObject:inputInt atIndex:inputArray.count ];
+        if (inputArray.count != randomArray.count &&[inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count]]) {
+            lableLevel.text =@"good";
+        } else {
+            lableLevel.text =@"sorry you lost";
+            [inputArray removeAllObjects];
+            [randomArray removeAllObjects];
+        } 
+        
+    }
+    
 }
 
 -(IBAction)pushButtonTwo:(id)sender{
-    NSNumber *inputInt = [NSNumber numberWithInt:1];
-    if(inputArray.count == 0){
-        inputArray = [[NSMutableArray alloc] init];
-        [inputArray addObject:inputInt];
+    inputInt = [NSNumber numberWithInt:2];
+    inputArray = [[NSMutableArray alloc] init];
+    if(randomArray.count ==0){
+        lableLevel.text=@"Start the Game first";
+        [inputArray removeAllObjects];
+        [randomArray removeAllObjects];
     } else {
         [inputArray insertObject:inputInt atIndex:inputArray.count ];
+        if (inputArray.count != randomArray.count &&[inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count]]) {
+            lableLevel.text =@"good";
+        } else {
+            lableLevel.text =@"sorry you lost";
+            [inputArray removeAllObjects];
+            [randomArray removeAllObjects];
+        } 
+        
     }
+    
 }
 
 -(IBAction)pushButtonThree:(id)sender{
-    NSNumber *inputInt = [NSNumber numberWithInt:2];
-    if(inputArray.count == 0){
-        inputArray = [[NSMutableArray alloc] init];
-        [inputArray addObject:inputInt];
+    inputInt = [NSNumber numberWithInt:3];
+    inputArray = [[NSMutableArray alloc] init];
+    if(randomArray.count ==0){
+        lableLevel.text=@"Start the Game first";
+        [inputArray removeAllObjects];
+        [randomArray removeAllObjects];
     } else {
         [inputArray insertObject:inputInt atIndex:inputArray.count ];
+        if (inputArray.count != randomArray.count &&[inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count]]) {
+            lableLevel.text =@"good";
+        } else {
+            lableLevel.text =@"sorry you lost";
+            [inputArray removeAllObjects];
+            [randomArray removeAllObjects];
+        } 
+        
     }
-}
-
--(IBAction)pushButtonFour:(id)sender{
-    NSNumber *inputInt = [NSNumber numberWithInt:3];
-    if(inputArray.count == 0){
-        inputArray = [[NSMutableArray alloc] init];
-        [inputArray addObject:inputInt];
-    } else {
-        [inputArray insertObject:inputInt atIndex:inputArray.count ];
-    }
+    
 }
 
 -(IBAction)pushButtonStart:(id)sender{
-    NSNumber *randomInt;
-    NSNumber *zero;
-    NSNumber *one;
-    NSNumber *two;
-    NSNumber *three;
-    zero = [NSNumber numberWithInt:0];
-    one =[NSNumber numberWithInt:1];
-    two = [NSNumber numberWithInt:2];
-    three = [NSNumber numberWithInt:3];
-    
-    randomInt = [NSNumber numberWithInt:arc4random() %4];
-    if (randomArray.count == 0) {
-        randomArray = [[NSMutableArray alloc] init];
-
- 
-        
-        if([randomInt isEqualToNumber:zero]) {
-            [buttonOne setTitle:@"TAP!" forState:UIControlStateNormal];
-            [randomArray insertObject:randomInt atIndex:randomArray.count];
-            randomInt = nil;
-            sleep(.1);
-
-        
-        } else if ([randomInt isEqualToNumber:one]){
-            [buttonTwo setTitle:@"TAP!" forState:UIControlStateNormal];
-            [randomArray addObject:randomInt];
-            randomInt=nil;
-            sleep(.1);
-
-           
-        } else if ([randomInt isEqualToNumber:two]){
-            [buttonThree setTitle:@"TAP!" forState:UIControlStateNormal];
-            [randomArray addObject:randomInt];
-            randomInt=nil;
-            sleep(.1);
-
-            
+    if (lableLevel.text == @"Start the Game first") {
+        lableLevel.text =nil;
+    } else{
+    NSNumber *zero = [NSNumber numberWithInt:0];
+    NSNumber *one =[NSNumber numberWithInt:1];
+    NSNumber *two = [NSNumber numberWithInt:2];
+    NSNumber *randomInt= [NSNumber numberWithInt:arc4random() %4];
+        if (randomArray.count == 0) {
+            randomArray = [[NSMutableArray alloc] init];
         } else {
-            [buttonFour setTitle:@"TAP!" forState:UIControlStateNormal];
             [randomArray addObject:randomInt];
-            randomInt=nil;
-            sleep(.1);
+        }
 
+
+        for (int i=0;  i<= randomArray.count; i++) {
+            NSNumber *checker = [NSNumber numberWithInt:i];
+           checker = [randomArray objectAtIndex:i];
+            if ([checker isEqualToNumber:zero]) {
+            [buttonZero setTitle:@"TAP!" forState:UIControlStateNormal];
+                [buttonZero setTitle:@"TAP!" forState:UIControlStateNormal];
+                sleep(.1);
+                } else if ([checker isEqualToNumber:one]){
+                    [buttonOne setTitle:@"TAP!" forState:UIControlStateNormal];
+                    sleep(.1);
+                
+                } else if ([checker isEqualToNumber:two]){
+                    [buttonTwo setTitle:@"TAP!" forState:UIControlStateNormal];
+                    sleep(.1);
+            } else {
+                [buttonThree setTitle:@"TAP!" forState:UIControlStateNormal];
+                sleep(.1);
+
+            }
+    
+            [self resetAllButtons];
         }
-        
-    } else {
-        for (int i=0;  i>randomArray.count; i++) {
-            [randomArray addObject:randomInt];
-            [buttonStart setTitle:@"again!" forState:UIControlStateNormal];
-        }
-           
- 
-        }
-   //$ [self resetAllButtons];
+
+    }
 }
+
+
 -(IBAction)pushButtonStop:(id)sender{
     lableLevel.text =nil;
-    [inputArray removeAllObjects];
-    [randomArray removeAllObjects];
+    [self resetAllArrays];
     [self resetAllButtons];
 
 }
 -(IBAction)resetAllButtons{
-[buttonOne setTitle:nil forState:UIControlStateNormal];
-[buttonTwo setTitle:nil forState:UIControlStateNormal];
-[buttonThree setTitle:nil forState:UIControlStateNormal];
-[buttonFour setTitle:nil forState:UIControlStateNormal];
+    [buttonZero setTitle:nil forState:UIControlStateNormal];
+    [buttonOne setTitle:nil forState:UIControlStateNormal];
+    [buttonTwo setTitle:nil forState:UIControlStateNormal];
+    [buttonThree setTitle:nil forState:UIControlStateNormal];
 }
+-(IBAction)resetAllArrays{
+    [inputArray removeAllObjects];
+    [randomArray removeAllObjects];
+}
+-(IBAction)initiateArrayAndValidateInput{
 
+}
 
 
 
@@ -150,10 +183,10 @@ NSMutableArray *randomArray;
 
 - (void)viewDidUnload
 {
+    [self setButtonZero:nil];
     [self setButtonOne:nil];
     [self setButtonTwo:nil];
     [self setButtonThree:nil];
-    [self setButtonFour:nil];
     [self setButtonStart:nil];
     [self setButtonStop:nil];
     [self setLableLevel:nil];

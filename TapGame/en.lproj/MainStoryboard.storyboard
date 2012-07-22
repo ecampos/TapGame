@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E2068" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -27,7 +27,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pushButtonOne:" destination="2" eventType="touchUpInside" id="EGo-Dd-IfZ"/>
+                                    <action selector="pushButtonZero:" destination="2" eventType="touchUpInside" id="2yX-hs-uVw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6cM-bf-5t8" userLabel="ButtonTwo">
@@ -42,7 +42,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pushButtonTwo:" destination="2" eventType="touchUpInside" id="1ov-1I-8tN"/>
+                                    <action selector="pushButtonOne:" destination="2" eventType="touchUpInside" id="mIH-S0-uRQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mpw-hn-TsJ" userLabel="ButtonThree">
@@ -57,7 +57,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pushButtonThree:" destination="2" eventType="touchUpInside" id="60D-c1-YdY"/>
+                                    <action selector="pushButtonTwo:" destination="2" eventType="touchUpInside" id="F4l-Vu-StL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="reh-Eo-YpL" userLabel="ButtonFour">
@@ -72,7 +72,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pushButtonFour:" destination="2" eventType="touchUpInside" id="FDY-Et-7OT"/>
+                                    <action selector="pushButtonThree:" destination="2" eventType="touchUpInside" id="dqh-7I-K3y"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="QVf-Sj-Zrm">
@@ -116,12 +116,12 @@
                         <color key="backgroundColor" red="1" green="0.80012687358002088" blue="0.10045821076805561" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="buttonFour" destination="reh-Eo-YpL" id="cc2-5F-SHu"/>
-                        <outlet property="buttonOne" destination="Yld-pZ-Olp" id="Bbd-Hl-B5G"/>
+                        <outlet property="buttonOne" destination="6cM-bf-5t8" id="wYI-2i-wik"/>
                         <outlet property="buttonStart" destination="dF9-Ny-Oni" id="ekc-Dt-wNf"/>
                         <outlet property="buttonStop" destination="2nC-6T-xZD" id="AgJ-1N-bmb"/>
-                        <outlet property="buttonThree" destination="mpw-hn-TsJ" id="ohf-5s-Jau"/>
-                        <outlet property="buttonTwo" destination="6cM-bf-5t8" id="iAe-l7-se1"/>
+                        <outlet property="buttonThree" destination="reh-Eo-YpL" id="CqG-f6-nd7"/>
+                        <outlet property="buttonTwo" destination="mpw-hn-TsJ" id="ehV-Vp-jUo"/>
+                        <outlet property="buttonZero" destination="Yld-pZ-Olp" id="RZT-xd-51K"/>
                         <outlet property="lableLevel" destination="QVf-Sj-Zrm" id="JG5-GC-J1t"/>
                     </connections>
                 </viewController>
