@@ -5,17 +5,16 @@
 //  Created by Emanuel Campos on 18.07.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
-
+#include <stdlib.h>
 #import "ViewController.h"
+
 
 
 @interface ViewController ()
 
 @end
 NSMutableArray *inputArray;
-NSNumber *randomInt;
 NSMutableArray *randomArray;
-
 @implementation ViewController
 @synthesize buttonOne;
 @synthesize buttonTwo;
@@ -27,7 +26,7 @@ NSMutableArray *randomArray;
 
 
 -(IBAction)pushButtonOne:(id)sender{
-    NSNumber *inputInt = [NSNumber numberWithInt:1];
+    NSNumber *inputInt = [NSNumber numberWithInt:0];
     
     if(inputArray.count == 0){
         
@@ -36,11 +35,20 @@ NSMutableArray *randomArray;
    
     } else {
         [inputArray insertObject:inputInt atIndex:inputArray.count ];
-    }
-
-
+            }
 }
+
 -(IBAction)pushButtonTwo:(id)sender{
+    NSNumber *inputInt = [NSNumber numberWithInt:1];
+    if(inputArray.count == 0){
+        inputArray = [[NSMutableArray alloc] init];
+        [inputArray addObject:inputInt];
+    } else {
+        [inputArray insertObject:inputInt atIndex:inputArray.count ];
+    }
+}
+
+-(IBAction)pushButtonThree:(id)sender{
     NSNumber *inputInt = [NSNumber numberWithInt:2];
     if(inputArray.count == 0){
         inputArray = [[NSMutableArray alloc] init];
@@ -49,17 +57,9 @@ NSMutableArray *randomArray;
         [inputArray insertObject:inputInt atIndex:inputArray.count ];
     }
 }
--(IBAction)pushButtonThree:(id)sender{
-    NSNumber *inputInt = [NSNumber numberWithInt:3];
-    if(inputArray.count == 0){
-        inputArray = [[NSMutableArray alloc] init];
-        [inputArray addObject:inputInt];
-    } else {
-        [inputArray insertObject:inputInt atIndex:inputArray.count ];
-    }
-}
+
 -(IBAction)pushButtonFour:(id)sender{
-    NSNumber *inputInt = [NSNumber numberWithInt:4];
+    NSNumber *inputInt = [NSNumber numberWithInt:3];
     if(inputArray.count == 0){
         inputArray = [[NSMutableArray alloc] init];
         [inputArray addObject:inputInt];
@@ -69,28 +69,73 @@ NSMutableArray *randomArray;
 }
 
 -(IBAction)pushButtonStart:(id)sender{
-        randomInt = [NSNumber numberWithInt:rand()];
+    NSNumber *randomInt;
+    NSNumber *zero;
+    NSNumber *one;
+    NSNumber *two;
+    NSNumber *three;
+    zero = [NSNumber numberWithInt:0];
+    one =[NSNumber numberWithInt:1];
+    two = [NSNumber numberWithInt:2];
+    three = [NSNumber numberWithInt:3];
+    
+    randomInt = [NSNumber numberWithInt:arc4random() %4];
     if (randomArray.count == 0) {
-      randomArray = [[NSMutableArray alloc] init];
-        [randomArray addObject:randomInt];
-        lableLevel.text = @"hello";
-    } else {
-           
-    [randomArray addObject:randomInt];
-        lableLevel.text =@"goodbye";
-        }
- /*   for (int i = 0; i > 100; i++) // <-- copied ALERT
-    {
-        NSNumber* number = [NSNumber numberWithInt:i]; 
-        [randomArray addObject:number];
-        NSLog(@"%i", i);
+        randomArray = [[NSMutableArray alloc] init];
 
-    }*/
+ 
+        
+        if([randomInt isEqualToNumber:zero]) {
+            [buttonOne setTitle:@"TAP!" forState:UIControlStateNormal];
+            [randomArray insertObject:randomInt atIndex:randomArray.count];
+            randomInt = nil;
+            sleep(.1);
+
+        
+        } else if ([randomInt isEqualToNumber:one]){
+            [buttonTwo setTitle:@"TAP!" forState:UIControlStateNormal];
+            [randomArray addObject:randomInt];
+            randomInt=nil;
+            sleep(.1);
+
+           
+        } else if ([randomInt isEqualToNumber:two]){
+            [buttonThree setTitle:@"TAP!" forState:UIControlStateNormal];
+            [randomArray addObject:randomInt];
+            randomInt=nil;
+            sleep(.1);
+
+            
+        } else {
+            [buttonFour setTitle:@"TAP!" forState:UIControlStateNormal];
+            [randomArray addObject:randomInt];
+            randomInt=nil;
+            sleep(.1);
+
+        }
+        
+    } else {
+        for (int i=0;  i>randomArray.count; i++) {
+            [randomArray addObject:randomInt];
+            [buttonStart setTitle:@"again!" forState:UIControlStateNormal];
+        }
+           
+ 
+        }
+   //$ [self resetAllButtons];
 }
 -(IBAction)pushButtonStop:(id)sender{
     lableLevel.text =nil;
     [inputArray removeAllObjects];
     [randomArray removeAllObjects];
+    [self resetAllButtons];
+
+}
+-(IBAction)resetAllButtons{
+[buttonOne setTitle:nil forState:UIControlStateNormal];
+[buttonTwo setTitle:nil forState:UIControlStateNormal];
+[buttonThree setTitle:nil forState:UIControlStateNormal];
+[buttonFour setTitle:nil forState:UIControlStateNormal];
 }
 
 
