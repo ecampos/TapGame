@@ -13,6 +13,9 @@
 
 @end
 NSString *replay;
+NSArray *array;
+NSNumber *randomInt;
+NSMutableArray *array2;
 @implementation ViewController
 @synthesize buttonOne;
 @synthesize buttonTwo;
@@ -29,6 +32,7 @@ NSString *replay;
             NSString *foo =@",One";
           replay = [NSString stringWithFormat:@"%@%@",replay, foo];
         }
+    
 }
 -(IBAction)pushButtonTwo:(id)sender{
     if (replay == nil){
@@ -53,11 +57,24 @@ NSString *replay;
 }
 -(IBAction)pushButtonStart:(id)sender{
     lableLevel.text =replay;
+    randomInt = [NSNumber numberWithInt:rand()];
+    array =  [NSArray arrayWithObjects:randomInt,nil];
+    lableLevel.text =array.lastObject;
+    for (int i = 0; i > 100; i++) // <-- copied ALERT
+    {
+        NSNumber* number = [NSNumber numberWithInt:i]; 
+        [array2 addObject:number];
+        NSLog(@"%i", i);
+    }
 }
 -(IBAction)pushButtonStop:(id)sender{
     lableLevel.text =nil;
     replay =nil;
 }
+
+
+
+
 
 - (void)viewDidLoad
 {
