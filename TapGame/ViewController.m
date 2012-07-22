@@ -12,10 +12,10 @@
 @interface ViewController ()
 
 @end
-NSString *replay;
-NSArray *array;
+NSMutableArray *inputArray;
 NSNumber *randomInt;
-NSMutableArray *array2;
+NSMutableArray *randomArray;
+
 @implementation ViewController
 @synthesize buttonOne;
 @synthesize buttonTwo;
@@ -27,49 +27,70 @@ NSMutableArray *array2;
 
 
 -(IBAction)pushButtonOne:(id)sender{
-    if (replay == nil){
-        replay =@"One";} else{
-            NSString *foo =@",One";
-          replay = [NSString stringWithFormat:@"%@%@",replay, foo];
-        }
+    NSNumber *inputInt = [NSNumber numberWithInt:1];
     
+    if(inputArray.count == 0){
+        
+        inputArray = [[NSMutableArray alloc] init];
+        [inputArray addObject:inputInt];
+   
+    } else {
+        [inputArray insertObject:inputInt atIndex:inputArray.count ];
+    }
+
+
 }
 -(IBAction)pushButtonTwo:(id)sender{
-    if (replay == nil){
-        replay =@"Two";} else{
-            NSString *foo =@",Two";
-            replay = [NSString stringWithFormat:@"%@%@",replay, foo];
-        }
+    NSNumber *inputInt = [NSNumber numberWithInt:2];
+    if(inputArray.count == 0){
+        inputArray = [[NSMutableArray alloc] init];
+        [inputArray addObject:inputInt];
+    } else {
+        [inputArray insertObject:inputInt atIndex:inputArray.count ];
+    }
 }
 -(IBAction)pushButtonThree:(id)sender{
-    if (replay == nil){
-        replay =@"Three";} else{
-            NSString *foo =@",Three";
-            replay = [NSString stringWithFormat:@"%@%@",replay, foo];
-        }    
+    NSNumber *inputInt = [NSNumber numberWithInt:3];
+    if(inputArray.count == 0){
+        inputArray = [[NSMutableArray alloc] init];
+        [inputArray addObject:inputInt];
+    } else {
+        [inputArray insertObject:inputInt atIndex:inputArray.count ];
+    }
 }
 -(IBAction)pushButtonFour:(id)sender{
-    if (replay == nil){
-        replay =@"Four";} else{
-            NSString *foo =@",Four";
-            replay = [NSString stringWithFormat:@"%@%@",replay, foo];
-        }
+    NSNumber *inputInt = [NSNumber numberWithInt:4];
+    if(inputArray.count == 0){
+        inputArray = [[NSMutableArray alloc] init];
+        [inputArray addObject:inputInt];
+    } else {
+        [inputArray insertObject:inputInt atIndex:inputArray.count ];
+    }
 }
+
 -(IBAction)pushButtonStart:(id)sender{
-    lableLevel.text =replay;
-    randomInt = [NSNumber numberWithInt:rand()];
-    array =  [NSArray arrayWithObjects:randomInt,nil];
-    lableLevel.text =array.lastObject;
-    for (int i = 0; i > 100; i++) // <-- copied ALERT
+        randomInt = [NSNumber numberWithInt:rand()];
+    if (randomArray.count == 0) {
+      randomArray = [[NSMutableArray alloc] init];
+        [randomArray addObject:randomInt];
+        lableLevel.text = @"hello";
+    } else {
+           
+    [randomArray addObject:randomInt];
+        lableLevel.text =@"goodbye";
+        }
+ /*   for (int i = 0; i > 100; i++) // <-- copied ALERT
     {
         NSNumber* number = [NSNumber numberWithInt:i]; 
-        [array2 addObject:number];
+        [randomArray addObject:number];
         NSLog(@"%i", i);
-    }
+
+    }*/
 }
 -(IBAction)pushButtonStop:(id)sender{
     lableLevel.text =nil;
-    replay =nil;
+    [inputArray removeAllObjects];
+    [randomArray removeAllObjects];
 }
 
 
