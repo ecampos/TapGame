@@ -35,12 +35,13 @@ NSMutableArray *randomArray;
         [randomArray removeAllObjects];
     } else {
         [inputArray insertObject:inputInt atIndex:inputArray.count ];
-        if (inputArray.count != randomArray.count &&[inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count]]) {
+        if ([inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count -1]]) {
             lableLevel.text =@"good";
         } else {
             lableLevel.text =@"sorry you lost";
             [inputArray removeAllObjects];
             [randomArray removeAllObjects];
+            
         } 
         
     }
@@ -56,7 +57,7 @@ NSMutableArray *randomArray;
         [randomArray removeAllObjects];
     } else {
         [inputArray insertObject:inputInt atIndex:inputArray.count ];
-        if (inputArray.count != randomArray.count &&[inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count]]) {
+        if ([inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count -1]]) {
             lableLevel.text =@"good";
         } else {
             lableLevel.text =@"sorry you lost";
@@ -77,7 +78,7 @@ NSMutableArray *randomArray;
         [randomArray removeAllObjects];
     } else {
         [inputArray insertObject:inputInt atIndex:inputArray.count ];
-        if (inputArray.count != randomArray.count &&[inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count]]) {
+        if ([inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count- 1]]) {
             lableLevel.text =@"good";
         } else {
             lableLevel.text =@"sorry you lost";
@@ -98,7 +99,7 @@ NSMutableArray *randomArray;
         [randomArray removeAllObjects];
     } else {
         [inputArray insertObject:inputInt atIndex:inputArray.count ];
-        if (inputArray.count != randomArray.count &&[inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count]]) {
+        if ([inputInt isEqualToNumber:[randomArray objectAtIndex: inputArray.count -1]]) {
             lableLevel.text =@"good";
         } else {
             lableLevel.text =@"sorry you lost";
@@ -128,31 +129,26 @@ NSMutableArray *randomArray;
         [randomArray addObject:randomInt];
         }
         
-
-        for (int i=0;  i<= randomArray.count; i++) {
-            NSNumber *checker = [NSNumber numberWithInt:i];
-           checker = [randomArray objectAtIndex:i];
+        NSEnumerator *arrayEnum = [randomArray objectEnumerator];
+        NSNumber *checker;
+        while ((checker = [arrayEnum nextObject]) !=nil){
             if ([checker isEqualToNumber:zero]) {
-            [buttonZero setTitle:@"TAP!" forState:UIControlStateNormal];
                 [buttonZero setTitle:@"TAP!" forState:UIControlStateNormal];
-                sleep(.1);
-                } else if ([checker isEqualToNumber:one]){
-                    [buttonOne setTitle:@"TAP!" forState:UIControlStateNormal];
-                    sleep(.1);
-                
-                } else if ([checker isEqualToNumber:two]){
-                    [buttonTwo setTitle:@"TAP!" forState:UIControlStateNormal];
-                    sleep(.1);
+               // [buttonZero setTitle:nil forState:UIControlStateNormal];
+            } else if ([checker isEqualToNumber:one]){
+                [buttonOne setTitle:@"TAP!" forState:UIControlStateNormal];
+            
+            } else if ([checker isEqualToNumber:two]){
+                [buttonTwo setTitle:@"TAP!" forState:UIControlStateNormal];
             } else {
                 [buttonThree setTitle:@"TAP!" forState:UIControlStateNormal];
-                sleep(.1);
-
-            }
-    
-            [self resetAllButtons];
+                
+            } 
+        
         }
-
+  
     }
+
 }
 
 
